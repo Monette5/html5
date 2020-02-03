@@ -21,6 +21,9 @@ function main_call_setupContent(){
   //Bee
   $('#SG0_5').css('width', 150 * ratio);
   $('#SG0_5').css('height', 150 * ratio);
+  //any sprite shhets?
+  //our Gun
+  setup_Gun_SS();
 }
 //var image_ids = ["#SG_1", "#SG_2", "#SG_3", "#SG_4", "#SG_5"];
 //var image_sizes = [ [150, 150], [200, 90], [233, 100], [200, 100], [150, 150]];
