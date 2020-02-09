@@ -20,7 +20,7 @@ $(div_name).css('height', newHeightx);
 //take image name and apply as background image to div
 $(div_name).css('background-image', 'url('+image_name + ')');
 //apply a background size remembering to * width by number of frames
-$(div_name).css('background-size', newWidthx * no_of_frames + 'px' + newHeightx + 'px');
+$(div_name).css('background-size', newWidthx * no_of_frames + 'px ' + newHeightx + 'px');
 }
 //SETUP the Gun
 function setup_Gun_SS () {
@@ -39,7 +39,73 @@ $("#SG0_1").animateSprite({
   complete: function() {
     //usecomplete only when set animations with loop false
     //alert("animation End");
+    //click universal flag
+    canIclick = 0;
   }
+
+});
+}
+function setup_zombie_SS(whichOne){
+  //type of zombie
+  var type_zombie = [1,2,3,1,2,3];
+  //setup speed for each type
+  var speed_zombie = [100,50,150];
+  //set up zombie ss
+
+  setup_SpriteSheet("#zombie" +whichOne,"Images/zombiesSS_" +type_zombie[whichOne-1]+".png",9,20,20);
+  //need to access special function in js/ss.js
+
+  $("#zombie" +whichOne).animateSprite({
+  fps:10,
+  animations: {
+    static: [1,2,3,4,5,6,7],
+
+  },
+  duration: speed_zombie[type_zombie[whichOne-1]-1],
+  loop: true,
+  complete: function() {
+    //usecomplete only when set animations with loop false
+    //alert("animation End");
+    //click universal flag
+
+  }
+
+});
+//setup bubble zombie
+setup_SpriteSheet("#bubble_zombie" +whichOne,"Images/SG_bubble.png",3,20,20);
+//need to access special function in js/ss.js
+
+$("#bubble_zombie" +whichOne).animateSprite({
+fps:10,
+animations: {
+  z1: [type_zombie[whichOne-1]-1],
+
+},
+duration: 1,
+loop: false,
+complete: function() {
+  //usecomplete only when set animations with loop false
+  //alert("animation End");
+}
+
+});
+//setup special effect
+setup_SpriteSheet("#zombie_effect" +whichOne,"Images/SG_effect_ss.png",4,13,15);
+//need to access special function in js/ss.js
+
+$("#zombie_effect" +whichOne).animateSprite({
+fps:10,
+animations: {
+  z1: [0,1,2,3],
+
+},
+duration: 20,
+loop: false,
+complete: function() {
+  //usecomplete only when set animations with loop false
+  //alert("animation End");
+  $("#zombie_effect" +whichOne).css({opacity:0});
+}
 
 });
 }

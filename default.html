@@ -3,20 +3,27 @@
   <link href="CSS/SG_master.css" rel="stylesheet"/>
   <script src="js/jquery.js"></script>
   <script src="js/jquery-ui.js"></script>
+  <script src="sounds/jquery.playSound.js"></script>
   <script src="js/SG_main.js"></script>
   <script src="js/SG_setupContent.js"></script>
   <script src="js/SG_movement.js"></script>
+  <script src="js/SG_touch.js"></script>
+  <script src="js/SG_zombie_movement.js"></script>
   <script src="js/SG_SS.js"></script>
   <script src="js/ss.js"></script>
   </head>
   <body>
+    <div id="logo"></div>
+    <div id="box1"></div>
     <div id="SG_maincontent">
-      <img id="SG0_0" onmouseover="rotateGun(event)" src="Images\SG_imageback.png">
-      <div id="SG0_1"></div>
-      <!-- <img src="Images\SG_gun.png"> -->
-      <div id="SG0_2" > <img src="Images\SG_reload.png"></div>
-      <div id="SG0_3"><img src="Images\SG_score.png"></div>
-      <img id="SG0_4" src="Images\SG_seagull.png">
+      <img id="SG0_0" src="Images\SG_imageback.png" onmousemove="rotateGun(event)" onmousedown="fireGun(event)">
+      <div id="SG0_1">
+      <img src="Images\SG_gun.png"></div>
+      <div id="SG0_2"><img src="Images\SG_reload.png" onmousedown="reloadGun(event)"></div>
+      <div id="SG0_3" style="background-image: url(./Images/SG_score.png);"></div>
+      <div id="SG0_4" onmousedown="start_game();"></div>
+      <div id="textx">0</div>
+      <img id="SG0_41" src="Images\SG_seagull.png" >
       <img id="SG0_5" src="Images\SG_bee.png">
       <img id="SG0_6" src="Images\SG_poop1.png">
       </div>
